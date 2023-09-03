@@ -54,18 +54,18 @@ public class PageService {
         return String.join(" > ", breadcrumbs);
     }
 
-    @Transactional
-    public PageSaveResponse savePage(final PageSaveRequest pageSaveRequest) {
-        Page page = pageRepository.save(Page.builder()
-                .title(pageSaveRequest.getTitle())
-                .content(pageSaveRequest.getContent())
-                .parentId(pageSaveRequest.getParentId())
-                .build());
-        return PageSaveResponse.from(page);
-    }
-
-    @Transactional(readOnly = true)
-    public List<Page> findAll() {
-        return pageRepository.findAll();
-    }
+//    @Transactional
+//    public PageSaveResponse savePage(final PageSaveRequest pageSaveRequest) {
+//        Page page = pageRepository.save(Page.builder()
+//                .title(pageSaveRequest.getTitle())
+//                .content(pageSaveRequest.getContent())
+//                .parentId(pageSaveRequest.getParentId())
+//                .build());
+//        return PageSaveResponse.from(page);
+//    }
+//
+//    @Transactional(readOnly = true)
+//    public List<Page> findAll() {
+//        return pageRepository.findAll();
+//    }
 }

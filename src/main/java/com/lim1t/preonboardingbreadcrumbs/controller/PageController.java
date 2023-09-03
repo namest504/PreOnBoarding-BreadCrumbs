@@ -26,15 +26,15 @@ public class PageController {
         return ResponseEntity.ok(pageResponse);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Page>> getPageList() {
-        return ResponseEntity.ok(pageService.findAll());
-    }
-
-    @PostMapping
-    public ResponseEntity<Void> uploadPage(@RequestBody final PageSaveRequest pageSaveRequest) {
-        PageSaveResponse pageSaveResponse = pageService.savePage(pageSaveRequest);
-        return ResponseEntity.ok()
-                .build();
-    }
+//    @GetMapping
+//    public ResponseEntity<List<Page>> getPageList() {
+//        return ResponseEntity.ok(pageService.findAll());
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity<Void> uploadPage(@RequestBody final PageSaveRequest pageSaveRequest) {
+//        PageSaveResponse pageSaveResponse = pageService.savePage(pageSaveRequest);
+//        return ResponseEntity.ok()
+//                .build();
+//    }
 }
