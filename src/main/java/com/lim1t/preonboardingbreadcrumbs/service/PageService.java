@@ -54,6 +54,10 @@ public class PageService {
         return String.join(" > ", breadcrumbs);
     }
 
+    public List<?> getBread(Long id){
+        return pageRepository.findBread(id);
+    }
+
 //    @Transactional
 //    public PageSaveResponse savePage(final PageSaveRequest pageSaveRequest) {
 //        Page page = pageRepository.save(Page.builder()

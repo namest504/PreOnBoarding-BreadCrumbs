@@ -26,6 +26,11 @@ public class PageController {
         return ResponseEntity.ok(pageResponse);
     }
 
+    @GetMapping("/b")
+    public ResponseEntity<?> getBread(@RequestParam("id") Long id) {
+        return ResponseEntity.ok(pageService.getBread(id));
+    }
+
 //    @GetMapping
 //    public ResponseEntity<List<Page>> getPageList() {
 //        return ResponseEntity.ok(pageService.findAll());
