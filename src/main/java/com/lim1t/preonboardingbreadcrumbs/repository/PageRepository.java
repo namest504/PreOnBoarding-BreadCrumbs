@@ -19,10 +19,7 @@ public interface PageRepository extends JpaRepository<Page, Long> {
     @Query(value = "SELECT * FROM page WHERE parent_id = :parentId", nativeQuery = true)
     List<Page> findByParentId(@Param("parentId") final Long parentId);
 
-    @Query(value = "WITH RECURSIVE cte AS (" +
-            "SELECT id, title, parent_id FROM page WHERE id = :id " +
-            "UNION ALL " +
-            "SELECT a.id, a.title, a.parent_id FROM page AS a INNER JOIN cte ON a.parent_id=cte.id)  SELECT * FROM cte;", nativeQuery = true)
+    @Query(value = "with recursive cte as ( select id, title, parent_id from page where id = :id  union all  select a.id, a.title, a.parent_id from page a inner join cte b on b.parent_id=a.id )  select * from cte", nativeQuery = true)
     List<?> findBread(@Param("id") final Long id);
 
 }
