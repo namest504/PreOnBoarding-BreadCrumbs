@@ -36,3 +36,7 @@
         ```
 
 - 제출하신 과제에 대해서 설명해주세요. (”왜 이 구조가 최선인지?” 등)
+
+## 과제 제출
+
+### [과제 Notion 페이지 정리](https://happy-dichondra-b8f.notion.site/Breadcrumbs-c6e05d970e7b430abd10e91f2336a156?pvs=4)
