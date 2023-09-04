@@ -5,7 +5,7 @@
 --     content   TEXT,
 --     parent_id BIGINT
 -- );
-drop table page;
+drop table if exists page;
 
 create table page
 (
@@ -13,6 +13,6 @@ create table page
     parent_id bigint,
     title     varchar(50) not null,
     content   TEXT,
-        foreign key (parent_id) references page(id)
-        ON DELETE CASCADE
+    foreign key (parent_id) references page(id)
+    ON DELETE CASCADE
 );
