@@ -25,21 +25,4 @@ public class PageController {
         PageResponse pageResponse = pageService.getPage(id);
         return ResponseEntity.ok(pageResponse);
     }
-
-    @GetMapping("/b")
-    public ResponseEntity<?> getBread(@RequestParam("id") Long id) {
-        return ResponseEntity.ok(pageService.getBread(id));
-    }
-
-//    @GetMapping
-//    public ResponseEntity<List<Page>> getPageList() {
-//        return ResponseEntity.ok(pageService.findAll());
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<Void> uploadPage(@RequestBody final PageSaveRequest pageSaveRequest) {
-//        PageSaveResponse pageSaveResponse = pageService.savePage(pageSaveRequest);
-//        return ResponseEntity.ok()
-//                .build();
-//    }
 }
