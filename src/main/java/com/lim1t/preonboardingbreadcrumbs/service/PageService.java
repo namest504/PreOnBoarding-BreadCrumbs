@@ -1,9 +1,7 @@
 package com.lim1t.preonboardingbreadcrumbs.service;
 
 import com.lim1t.preonboardingbreadcrumbs.constant.ErrorCode;
-import com.lim1t.preonboardingbreadcrumbs.dto.PageSaveRequest;
 import com.lim1t.preonboardingbreadcrumbs.dto.PageResponse;
-import com.lim1t.preonboardingbreadcrumbs.dto.PageSaveResponse;
 import com.lim1t.preonboardingbreadcrumbs.dto.SubPageResponse;
 import com.lim1t.preonboardingbreadcrumbs.entity.Page;
 import com.lim1t.preonboardingbreadcrumbs.exception.CustomException;
@@ -39,37 +37,11 @@ public class PageService {
     }
 
     private String getBreadcrumbs(Long id) {
-        List<String> breadcrumbs = new ArrayList<>();
-
-        while (id != null) {
-            Page page = pageRepository.findById(id)
-                    .orElseThrow(() -> new CustomException(ErrorCode.PAGE_NOT_FOUND));
-            breadcrumbs.add(page.getTitle());
-
-            id = page.getParentId();
-        }
+        List<String> bread = pageRepository.findBread(id);
+        List<String> breadcrumbs = new ArrayList<>(bread);
 
         Collections.reverse(breadcrumbs);
 
         return String.join(" > ", breadcrumbs);
     }
-
-    public List<?> getBread(Long id){
-        return pageRepository.findBread(id);
-    }
-
-//    @Transactional
-//    public PageSaveResponse savePage(final PageSaveRequest pageSaveRequest) {
-//        Page page = pageRepository.save(Page.builder()
-//                .title(pageSaveRequest.getTitle())
-//                .content(pageSaveRequest.getContent())
-//                .parentId(pageSaveRequest.getParentId())
-//                .build());
-//        return PageSaveResponse.from(page);
-//    }
-//
-//    @Transactional(readOnly = true)
-//    public List<Page> findAll() {
-//        return pageRepository.findAll();
-//    }
 }
